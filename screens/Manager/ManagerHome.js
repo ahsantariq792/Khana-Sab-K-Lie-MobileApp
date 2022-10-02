@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
-import Logo from '../Components/Logo'
+import Logo from '../../Components/Logo'
 
 
-const Home = ({ navigation }) => {
+const ManagerHome = ({ navigation }) => {
     return (
         <View style={styles.Container}>
             <View style={styles.subContainer}>
@@ -12,8 +12,7 @@ const Home = ({ navigation }) => {
                 </View>
 
                 <View style={styles.textContainer}>
-                    <Text style={styles.textheadingStyle}>Welcome To Khana Sab K Lie</Text>
-                    <Text style={styles.textStyle}>Powered By Saylani</Text>
+                    <Text style={styles.textheadingStyle}>Verify User</Text>
                 </View>
                 <TouchableOpacity
                     style={styles.buttonStyle}
@@ -21,16 +20,16 @@ const Home = ({ navigation }) => {
                         navigation.navigate("LoginUser")
                     }
                 >
-                    <Text style={styles.buttonText}> Public User </Text>
+                    <Text style={styles.buttonText}> Verify By ID </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.buttonStyle}
                     onPress={() =>
-                        navigation.navigate("LoginManager")
+                        navigation.navigate("LoginManager") 
                     }
                 >
-                    <Text style={styles.buttonText}> Manager </Text>
+                    <Text style={styles.buttonText}> Scan QR Code </Text>
                 </TouchableOpacity>
 
             </View>
@@ -38,7 +37,7 @@ const Home = ({ navigation }) => {
     )
 }
 
-export default Home
+export default ManagerHome
 
 const styles = StyleSheet.create({
     Container: {

@@ -1,3 +1,4 @@
+import { Center } from 'native-base'
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import Logo from '../Components/Logo'
@@ -38,7 +39,9 @@ const styles = StyleSheet.create({
         marginTop: 25,
     },
     LogoContainer: {
+        textAlign: "center",
         marginVertical: 140,
+
         // marginBottom: 200,
     },
     footer: {
@@ -62,8 +65,8 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         fontSize: 20,
         padding: 8,
-        margin: 8,
-        borderRadius: 8,
+        margin: 10,
+        borderRadius: 10,
         height: 40,
     },
     buttonText: {

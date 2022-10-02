@@ -16,10 +16,8 @@ export default Logo
 const styles = StyleSheet.create({
     imageContainer: {
         flex: 1,
-        justifyContent: "center",
         alignItems: "center",
         marginVertical: 20,
-
     },
     image: {
         height: 100,
