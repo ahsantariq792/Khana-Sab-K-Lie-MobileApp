@@ -16,13 +16,14 @@ import GenerateQRCode from '../screens/PublicUser/GenerateQRCode';
 import LoginManager from '../screens/Manager/LoginManager';
 import ManagerHome from '../screens/Manager/ManagerHome';
 import VerifyByQR from '../screens/Manager/VerifyByQR';
+import VerifyByID from '../screens/Manager/VerifyByID';
 
 function Navigations() {
     const Stack = createNativeStackNavigator();
 
     return (
         < NavigationContainer >
-            <Stack.Navigator initialRouteName="VerifyByQR">
+            <Stack.Navigator initialRouteName="GetSTarted">
 
                 <Stack.Screen name="GetStarted" component={GetStarted}
                     options={{
@@ -53,6 +54,7 @@ function Navigations() {
                 <Stack.Screen name="ManagerHome" component={ManagerHome} options={{ headerTitleAlign: 'center', title: '', headerTitleStyle: { fontSize: 18 } }} />
                 <Stack.Screen name="GenerateQRCode" component={GenerateQRCode} options={{ headerTitleAlign: 'center', title: '', headerTitleStyle: { fontSize: 18 } }} />
                 <Stack.Screen name="VerifyByQR" component={VerifyByQR} options={{ headerTitleAlign: 'center', title: '', headerTitleStyle: { fontSize: 18 } }} />
+                <Stack.Screen name="VerifyByID" component={VerifyByID} options={{ headerTitleAlign: 'center', title: '', headerTitleStyle: { fontSize: 18 } }} />
 
             </Stack.Navigator>
         </NavigationContainer >

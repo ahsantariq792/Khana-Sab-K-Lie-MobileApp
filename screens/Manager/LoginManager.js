@@ -30,7 +30,7 @@ const LoginManager = ({ navigation }) => {
     // }
     const showToastWithGravity = () => {
         ToastAndroid.showWithGravity(
-            "All Your Base Are Belong To Us",
+            "Invalid ID or Password",
             ToastAndroid.SHORT,
             ToastAndroid.CENTER
         );
@@ -46,7 +46,7 @@ const LoginManager = ({ navigation }) => {
             navigation.navigate("ManagerHome")
         }
     }
-    
+
 
     return (
         <View style={styles.container}>
@@ -70,7 +70,7 @@ const LoginManager = ({ navigation }) => {
                     </Text>
                     <TextInput style={styles.inputBox}
                         autoCapitalize="none"
-                        autoComplete={false}
+                        autoComplete="off"
                         value={userName}
                         onChangeText={(username) => setUserName(username)}
                     />
@@ -83,7 +83,7 @@ const LoginManager = ({ navigation }) => {
                     </Text>
                     <TextInput style={styles.inputBox}
                         autoCapitalize="none"
-                        autoComplete={false}
+                        autoComplete="off"
                         secureTextEntry={true}
                         value={password}
                         onChangeText={(password) => setPassword(password)}

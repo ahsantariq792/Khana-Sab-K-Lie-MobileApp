@@ -41,7 +41,7 @@ const Signup = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={userName}
                             onChangeText={(username) => setUserName(username)}
                         />
@@ -54,7 +54,7 @@ const Signup = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={email}
                             onChangeText={(email) => setEmail(email)}
                         />
@@ -66,7 +66,7 @@ const Signup = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                            autoComplete="off"
                             value={phoneNumber}
                             onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
                         />
@@ -78,7 +78,7 @@ const Signup = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             secureTextEntry={true}
                             value={password}
                             onChangeText={(password) => setPassword(password)}

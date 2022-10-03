@@ -17,7 +17,7 @@ const ManagerHome = ({ navigation }) => {
                 <TouchableOpacity
                     style={styles.buttonStyle}
                     onPress={() =>
-                        navigation.navigate("LoginUser")
+                        navigation.navigate("VerifyByID")
                     }
                 >
                     <Text style={styles.buttonText}> Verify By ID </Text>
@@ -26,7 +26,7 @@ const ManagerHome = ({ navigation }) => {
                 <TouchableOpacity
                     style={styles.buttonStyle}
                     onPress={() =>
-                        navigation.navigate("LoginManager") 
+                        navigation.navigate("VerifyByQR") 
                     }
                 >
                     <Text style={styles.buttonText}> Scan QR Code </Text>

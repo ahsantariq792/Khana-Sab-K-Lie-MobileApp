@@ -67,7 +67,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={userName}
                             onChangeText={(username) => setUserName(username)}
                         />
@@ -80,7 +80,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={fatherName}
                             onChangeText={(fatherName) => setFatherName(fatherName)}
                         />
@@ -93,7 +93,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={dateOfBirth}
                             onChangeText={(dateOfBirth) => setDateOfBirth(dateOfBirth)}
                         />
@@ -106,7 +106,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={CNIC}
                             onChangeText={(CNIC) => setCNIC(CNIC)}
                         />
@@ -120,7 +120,7 @@ const RashanForm = ({ navigation }) => {
                         <TextInput style={styles.inputBox}
                             type="number"
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={familyMembers}
                             onChangeText={(familyMembers) => setFamilyMembers(familyMembers)}
                         />
@@ -133,7 +133,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={income}
                             onChangeText={(income) => setIncome(income)}
                         />
@@ -146,7 +146,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={email}
                             onChangeText={(email) => setEmail(email)}
                         />
@@ -158,7 +158,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                            autoComplete={false}
+                             autoComplete="off"
                             value={phoneNumber}
                             onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
                         />

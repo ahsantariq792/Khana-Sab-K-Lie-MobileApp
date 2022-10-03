@@ -3,34 +3,14 @@ import { TouchableOpacity } from "react-native";
 import { react, useState } from "react";
 import Logo from "../../Components/Logo";
 
-// import {
-//     JosefinSans_400Regular,
-//     JosefinSans_500Medium,
-//     JosefinSans_700Bold,
-// } from "@expo-google-fonts/josefin-sans";
 
-// import { useFonts } from "expo-font";
-// import AppLoading from "expo-app-loading";
+const VerifyByID = ({ navigation }) => {
+    const [userID, setuserID] = useState("")
 
-const LoginUser = ({ navigation }) => {
-    const [userName, setUserName] = useState("")
-    const [password, setPassword] = useState("")
-    const [modalVisible, setModalVisible] = useState(false);
-
-    // let [fontsLoad, error] = useFonts({
-    //     JosefinSans_400Regular,
-    //     JosefinSans_500Medium,
-    //     JosefinSans_700Bold,
-    // });
-
-
-    // if (!fontsLoad) {
-    //     return <AppLoading />;
-    // }
 
     const showToastWithGravity = () => {
         ToastAndroid.showWithGravity(
-            "All Your Base Are Belong To Us",
+            "Invalid ID",
             ToastAndroid.SHORT,
             ToastAndroid.CENTER
         );
@@ -38,18 +18,11 @@ const LoginUser = ({ navigation }) => {
 
 
     const submit = () => {
-        console.log(userName)
-        console.log(password)
-        if (userName.length < 3 || password.length < 8) {
-            // setModalVisible(true)
-            // setTimeout(() => {
-            //     setModalVisible(false)
-            // }, 2000);
+        console.log(userID)
+        if (userID.length < 8) {
             showToastWithGravity()
         }
-        else {
-            navigation.navigate("MapPage")
-        }
+        return
     }
 
 
@@ -59,45 +32,15 @@ const LoginUser = ({ navigation }) => {
                 <Logo />
             </View>
 
-
-            {/* <View style={styles.centeredView}>
-                <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                        Alert.alert("Modal has been closed.");
-                        setModalVisible(!modalVisible);
-                    }}
-                >
-                    <LoginAlert />
-                </Modal>
-            </View> */}
-
             <View style={styles.inputForm}>
                 <View style={styles.inputContainer}>
                     <Text style={styles.textStyle}>
-                        Enter Email
+                        Enter ID to Verify
                     </Text>
                     <TextInput style={styles.inputBox}
                         autoCapitalize="none"
-                        autoComplete={false}
-                        value={userName}
-                        onChangeText={(username) => setUserName(username)}
-                    />
-
-                </View>
-
-                <View style={styles.inputContainer}>
-                    <Text style={styles.textStyle}>
-                        Enter Password
-                    </Text>
-                    <TextInput style={styles.inputBox}
-                        autoCapitalize="none"
-                        autoComplete={false}
-                        secureTextEntry={true}
-                        value={password}
-                        onChangeText={(password) => setPassword(password)}
+                        value={userID}
+                        onChangeText={(userID) => setuserID(userID)}
                     />
 
                 </View>
@@ -108,18 +51,18 @@ const LoginUser = ({ navigation }) => {
                         onPress={submit}
                     >
                         <Text style={styles.loginText}>
-                            Login
+                            Verify ID
                         </Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                         style={styles.button}
                         onPress={() =>
-                            navigation.navigate("Signup")
+                            navigation.navigate("VerifyByQR")
                         }
                     >
                         <Text style={styles.loginText}>
-                            Create new Account
+                            Verify By QR code
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -193,4 +136,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LoginUser;
+export default VerifyByID;

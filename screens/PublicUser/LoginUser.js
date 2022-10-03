@@ -30,7 +30,7 @@ const LoginUser = ({ navigation }) => {
 
     const showToastWithGravity = () => {
         ToastAndroid.showWithGravity(
-            "All Your Base Are Belong To Us",
+            "Invalid ID or Password",
             ToastAndroid.SHORT,
             ToastAndroid.CENTER
         );
@@ -81,7 +81,7 @@ const LoginUser = ({ navigation }) => {
                     </Text>
                     <TextInput style={styles.inputBox}
                         autoCapitalize="none"
-                        autoComplete={false}
+                        autoComplete="off"
                         value={userName}
                         onChangeText={(username) => setUserName(username)}
                     />
@@ -94,7 +94,7 @@ const LoginUser = ({ navigation }) => {
                     </Text>
                     <TextInput style={styles.inputBox}
                         autoCapitalize="none"
-                        autoComplete={false}
+                        autoComplete="off"
                         secureTextEntry={true}
                         value={password}
                         onChangeText={(password) => setPassword(password)}
