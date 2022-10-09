@@ -8,28 +8,54 @@ import {
 } from "native-base";
 import ApplicationSubmitted from '../../Components/ApplicationSubmitted';
 import Logo from '../../Components/Logo';
-
+import axios from 'axios';
 
 const RashanForm = ({ navigation }) => {
     const [agree, setAgree] = useState(false)
-    const [userName, setUserName] = useState("")
-    const [fatherName, setFatherName] = useState("")
-    const [email, setEmail] = useState("")
-    const [CNIC, setCNIC] = useState("")
-    const [dateOfBirth, setDateOfBirth] = useState("")
-    const [phoneNumber, setPhoneNumber] = useState("")
-    const [familyMembers, setFamilyMembers] = useState("")
-    const [income, setIncome] = useState("")
-    const [rashan, setRashan] = useState("")
+    const [name, setName] = useState("aa")
+    const [fatherName, setFatherName] = useState("aa")
+    const [email, setEmail] = useState("aa")
+    const [CNIC, setCNIC] = useState("111")
+    const [dateOfBirth, setDateOfBirth] = useState("11")
+    const [phoneNumber, setPhoneNumber] = useState("11")
+    const [familyMembers, setFamilyMembers] = useState("11")
+    const [income, setIncome] = useState("11")
+    const [rashan, setRashan] = useState("11")
     const [modalVisible, setModalVisible] = useState(false);
 
     const submit = async () => {
         setModalVisible(true)
-        await setTimeout(() => {
-            navigation.navigate("ApplicationStatus")
-            setModalVisible(false)
+
+        const data = {
+            name,
+            fatherName,
+            email,
+            CNIC,
+            dateOfBirth,
+            phoneNumber,
+            familyMembers,
+            income,
+            rashan
         }
-            , 2000);
+
+        await axios.post("http://192.168.100.53:5000/api/v1/user/rashanform", data)
+            .then(async (response) => {
+                console.log("request submitted successfully");
+                console.log(response.data);
+                await setTimeout(() => {
+                    navigation.navigate("ApplicationStatus")
+                    setModalVisible(false)
+                }
+                    , 2000);
+
+            })
+            .catch((response) => {
+                console.log("error in sending request");
+                console.log(response);
+            });
+
+
+
 
     }
 
@@ -67,9 +93,9 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
-                            value={userName}
-                            onChangeText={(username) => setUserName(username)}
+                            autoComplete="off"
+                            value={name}
+                            onChangeText={(name) => setName(name)}
                         />
 
                     </View>
@@ -80,7 +106,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={fatherName}
                             onChangeText={(fatherName) => setFatherName(fatherName)}
                         />
@@ -93,7 +119,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={dateOfBirth}
                             onChangeText={(dateOfBirth) => setDateOfBirth(dateOfBirth)}
                         />
@@ -106,7 +132,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={CNIC}
                             onChangeText={(CNIC) => setCNIC(CNIC)}
                         />
@@ -120,7 +146,7 @@ const RashanForm = ({ navigation }) => {
                         <TextInput style={styles.inputBox}
                             type="number"
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={familyMembers}
                             onChangeText={(familyMembers) => setFamilyMembers(familyMembers)}
                         />
@@ -133,7 +159,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={income}
                             onChangeText={(income) => setIncome(income)}
                         />
@@ -146,7 +172,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={email}
                             onChangeText={(email) => setEmail(email)}
                         />
@@ -158,7 +184,7 @@ const RashanForm = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={phoneNumber}
                             onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
                         />

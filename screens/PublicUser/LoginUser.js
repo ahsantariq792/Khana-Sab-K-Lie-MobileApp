@@ -2,31 +2,11 @@ import { View, Text, TextInput, StyleSheet, Alert, Modal, ToastAndroid, Button, 
 import { TouchableOpacity } from "react-native";
 import { react, useState } from "react";
 import Logo from "../../Components/Logo";
-
-// import {
-//     JosefinSans_400Regular,
-//     JosefinSans_500Medium,
-//     JosefinSans_700Bold,
-// } from "@expo-google-fonts/josefin-sans";
-
-// import { useFonts } from "expo-font";
-// import AppLoading from "expo-app-loading";
+import axios from "axios";
 
 const LoginUser = ({ navigation }) => {
-    const [userName, setUserName] = useState("")
-    const [password, setPassword] = useState("")
-    const [modalVisible, setModalVisible] = useState(false);
-
-    // let [fontsLoad, error] = useFonts({
-    //     JosefinSans_400Regular,
-    //     JosefinSans_500Medium,
-    //     JosefinSans_700Bold,
-    // });
-
-
-    // if (!fontsLoad) {
-    //     return <AppLoading />;
-    // }
+    const [email, setEmail] = useState("ahsan123@gmail.com")
+    const [password, setPassword] = useState("12345678")
 
     const showToastWithGravity = () => {
         ToastAndroid.showWithGravity(
@@ -35,19 +15,30 @@ const LoginUser = ({ navigation }) => {
             ToastAndroid.CENTER
         );
     };
-
-
-    const submit = () => {
-        console.log(userName)
+    const submit = async () => {
+        console.log(email)
         console.log(password)
-        if (userName.length < 3 || password.length < 8) {
-            // setModalVisible(true)
-            // setTimeout(() => {
-            //     setModalVisible(false)
-            // }, 2000);
+
+        const data = {
+            email,
+            password
+        }
+        console.log("data", data)
+
+        if (email.length < 3 || password.length < 8) {
             showToastWithGravity()
         }
         else {
+            await axios.post("http://192.168.100.53:5000/api/v1/user/login", data)
+                .then((response) => {
+                    console.log("login success");
+                    console.log(response.data);
+
+                })
+                .catch((response) => {
+                    console.log("invalid user");
+                    console.log(response);
+                });
             navigation.navigate("MapPage")
         }
     }
@@ -60,20 +51,6 @@ const LoginUser = ({ navigation }) => {
             </View>
 
 
-            {/* <View style={styles.centeredView}>
-                <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                        Alert.alert("Modal has been closed.");
-                        setModalVisible(!modalVisible);
-                    }}
-                >
-                    <LoginAlert />
-                </Modal>
-            </View> */}
-
             <View style={styles.inputForm}>
                 <View style={styles.inputContainer}>
                     <Text style={styles.textStyle}>
@@ -82,8 +59,8 @@ const LoginUser = ({ navigation }) => {
                     <TextInput style={styles.inputBox}
                         autoCapitalize="none"
                         autoComplete="off"
-                        value={userName}
-                        onChangeText={(username) => setUserName(username)}
+                        value={email}
+                        onChangeText={(email) => setEmail(email)}
                     />
 
                 </View>

@@ -4,21 +4,44 @@ import {
 } from "react-native"
 import { react, useState } from "react";
 import Logo from "../../Components/Logo";
+import axios from "axios";
 
 const Signup = ({ navigation }) => {
 
     const [agree, setAgree] = useState(false)
-    const [userName, setUserName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [phoneNumber, setPhoneNumber] = useState("")
+    const [userName, setUserName] = useState("ahsan")
+    const [email, setEmail] = useState("raa@gmail.com")
+    const [password, setPassword] = useState("24343253")
+    const [phoneNumber, setPhoneNumber] = useState("111111111111")
 
 
-    const submit = () => {
+    const submit = async () => {
+
+
         console.log(userName)
         console.log(email)
         console.log(phoneNumber)
         console.log(password)
+
+        const data = {
+            userName,
+            email,
+            phoneNumber,
+            password
+        }
+        console.log("data", data)
+
+        await axios.post("http://192.168.100.53:5000/api/v1/user/signup",data)
+            .then( (response) => {
+                console.log("success");
+                console.log(response.data);
+
+            })  
+            .catch( (response) => {
+                console.log("data not saved");
+                console.log(response);
+            });
+
     }
 
     return (
@@ -41,7 +64,7 @@ const Signup = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={userName}
                             onChangeText={(username) => setUserName(username)}
                         />
@@ -54,7 +77,7 @@ const Signup = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             value={email}
                             onChangeText={(email) => setEmail(email)}
                         />
@@ -78,7 +101,7 @@ const Signup = ({ navigation }) => {
                         </Text>
                         <TextInput style={styles.inputBox}
                             autoCapitalize="none"
-                             autoComplete="off"
+                            autoComplete="off"
                             secureTextEntry={true}
                             value={password}
                             onChangeText={(password) => setPassword(password)}

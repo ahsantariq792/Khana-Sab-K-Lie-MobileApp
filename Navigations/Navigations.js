@@ -23,7 +23,7 @@ function Navigations() {
 
     return (
         < NavigationContainer >
-            <Stack.Navigator initialRouteName="GetSTarted">
+            <Stack.Navigator initialRouteName="RashanForm">
 
                 <Stack.Screen name="GetStarted" component={GetStarted}
                     options={{
