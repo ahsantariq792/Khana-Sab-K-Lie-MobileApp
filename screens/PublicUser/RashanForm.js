@@ -12,15 +12,15 @@ import axios from 'axios';
 
 const RashanForm = ({ navigation }) => {
     const [agree, setAgree] = useState(false)
-    const [name, setName] = useState("aa")
-    const [fatherName, setFatherName] = useState("aa")
-    const [email, setEmail] = useState("aa")
-    const [CNIC, setCNIC] = useState("111")
-    const [dateOfBirth, setDateOfBirth] = useState("11")
-    const [phoneNumber, setPhoneNumber] = useState("11")
-    const [familyMembers, setFamilyMembers] = useState("11")
-    const [income, setIncome] = useState("11")
-    const [rashan, setRashan] = useState("11")
+    const [name, setName] = useState("")
+    const [fatherName, setFatherName] = useState("")
+    const [email, setEmail] = useState("")
+    const [CNIC, setCNIC] = useState("")
+    const [dateOfBirth, setDateOfBirth] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
+    const [familyMembers, setFamilyMembers] = useState("")
+    const [income, setIncome] = useState("")
+    const [rashan, setRashan] = useState("")
     const [modalVisible, setModalVisible] = useState(false);
 
     const submit = async () => {

@@ -9,10 +9,10 @@ import axios from "axios";
 const Signup = ({ navigation }) => {
 
     const [agree, setAgree] = useState(false)
-    const [userName, setUserName] = useState("ahsan")
-    const [email, setEmail] = useState("raa@gmail.com")
-    const [password, setPassword] = useState("24343253")
-    const [phoneNumber, setPhoneNumber] = useState("111111111111")
+    const [userName, setUserName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
 
 
     const submit = async () => {

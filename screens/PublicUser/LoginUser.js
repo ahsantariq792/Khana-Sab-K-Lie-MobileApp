@@ -5,8 +5,8 @@ import Logo from "../../Components/Logo";
 import axios from "axios";
 
 const LoginUser = ({ navigation }) => {
-    const [email, setEmail] = useState("ahsan123@gmail.com")
-    const [password, setPassword] = useState("12345678")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const showToastWithGravity = () => {
         ToastAndroid.showWithGravity(
